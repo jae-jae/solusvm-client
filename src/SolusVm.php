@@ -8,10 +8,10 @@ use GuzzleHttp\Client;
 class SolusVm
 {
     private $config = [
-        'server_api_url' => '',
+        'server_api_url' => 'http://xxx.com/api/client/command.php',
         'key' => '',
         'hash' => '',
-        'log' => ''
+        'log' => './log/vm.log'
     ];
 
     private $http;
@@ -83,6 +83,17 @@ class SolusVm
     {
         $this->shutdown();
         return $this->boot();
+    }
+
+    /**
+     * 检查主机是否宕机，如果宕机则重启主机
+     */
+    public function checkAndReboot()
+    {
+        $rt = $this->status();
+        if($rt['statusmsg'] != 'online'){
+            $this->shutdownAndBoot();
+        }
     }
 
     private function log($action,$data)

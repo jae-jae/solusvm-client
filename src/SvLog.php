@@ -33,10 +33,11 @@ class SvLog
     {
         if($action == 'status')
         {
-            if($data['statusmsg'] == 'online'){
-                $this->logger->info("{$action} server:",$data);
+            $status = $data['statusmsg'];
+            if($status == 'online'){
+                $this->logger->info("check server status({$status}):",$data);
             }else{
-                $this->logger->error("{$action} server:",$data);
+                $this->logger->error("check server status({$status}):",$data);
             }
         }else{
             $this->logger->notice("{$action} server:",$data);
