@@ -1,0 +1,22 @@
+{
+
+    "name": "jaeger/solusvm-client",
+    "description": "SolusVM PHP Api,PHP control vps　reboot, shutdown, boot, status.",
+    "keywords":["solusvm"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaeger",
+            "email": "JaegerCode@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "monolog/monolog": "^1.22"
+    },
+    "autoload":{
+        "psr-4":{
+            "Jaeger\\":"src"
+        }
+    }
+}
